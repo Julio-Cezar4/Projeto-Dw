@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
   background: rgb(0, 0, 0);
 
@@ -7,13 +8,31 @@ body{
   font-size: 20px;
 
   
+=======
+body, h1, h2, ul, li, input, section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-section{
-  background: rgba(137, 134, 134, 0.27);
-  color: white;
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #1e1e1e; 
+  color: #e0e0e0; 
+  line-height: 1.6;
+  background-image: url(./space.jpg);
+  background-size: cover; 
+  background-position: center;
+>>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: #fff;
   width: 500px;
-  margin: auto;
+  margin: 250px auto;
   border-radius: 12px;
+<<<<<<< HEAD
   border: 1px solid white;
   padding: 12px;
   margin-top: 250px;
@@ -21,12 +40,29 @@ section{
 }
 
 .label-visual{
+=======
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+header h2 {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.label-visual {
+>>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
   margin-left: 10px;
   font-weight: bold;
   font-size: 20px;
-  
 }
 
+<<<<<<< HEAD
 #conf-password, #password, #nome, #mail{
   margin-top: 12px;
   border-radius: 4px;
@@ -59,24 +95,62 @@ header h2{
 }
 
 #check{
-  margin-top: 12px;
-  margin-left: 12px;
+=======
+#nome, #mail, #password, #conf-password {
+  border-radius: 4px;
+  width: calc(100% - 40px);
+  margin: 10px 10px 20px 10px;
+  box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.633);
+  font-size: 18px;
+  padding: 10px;
+  background-color: #fff; 
+  color: #333; 
 }
-#link-cadastro{
-  margin-left: 175px;
+
+#but {
+  display: block;
+  margin: 20px auto;
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #007BFF; 
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#but:hover {
+  background-color: #0056b3; 
+  color: black;
+  box-shadow: 2px 2px 5px rgba(247, 247, 247, 0.811);
+}
+
+#check {
+  margin-left: 10px;
+>>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
+  margin-top: 12px;
+}
+
+#link-cadastro {
+  display: block;
+  text-align: center;
   text-decoration: none;
   color: white;
+  margin-top: 20px;
 }
-/* NAVBAR */
-.container{
+
+
+.container {
   display: inline-block;
   width: 50%;
   height: 200px;
   width: 700px;
-  height: 200px;
-
 }
-.navbar{
+
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,13 +158,13 @@ header h2{
   width: 700px;
   height: 200px;
 }
-.logo a{
+
+.logo a {
   text-decoration: none;
   font-size: 32px;
   font-weight: bold;
   color: white;
   margin-left: 15px;
-  float: left;  
   text-align: center;
 }
 
@@ -98,18 +172,24 @@ header h2{
   display: inline;
 }
 
-
-div ul li:hover{
+div ul li:hover {
   transition: 1s;
   font-size: 22px;
 }
-.navbar ul li a{
+
+.navbar ul li a {
   padding: 10px 20px;
   border-radius: 30px;
   transition: 1s;
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
-section div{
+
+.navbar ul li a:hover {
+  color: #ff9800; 
+}
+
+section div {
   margin-top: 12px;
 }
