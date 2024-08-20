@@ -6,30 +6,57 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
     <link href="../css/style.css" rel="stylesheet">
-    <title>Document</title>
-
+    <title>Página Principal</title>
 </head>
 <body>
     <main>
         <nav id="lista">
             <header><h2>MA-CV-EN-DO-RS</h2></header>
             <ul>
-                // Nome de usuário logado // foto 
+                <li id="userNameDisplay"></li>
+                
             </ul>
         </nav>
         <h1>Find MAC Address Vendors. Now.</h1>
-
         <div id="main">
             <input autofocus id='pesquisado' type="text" placeholder="00-1B-44-11-3A-B7">
-            <input id="add" value="Find" type="button" onclick="add()">
+            <input id="add" value="Find" type="button" onclick="find()">
         </div>
         <div id="resultados">
             <div id="resultado"></div>
-        </div>
+            <h2 id="historico-titulo">Histórico de Pesquisas:</h2>
+            <ul id="historico">
 
+            </ul>
+        </div>
     </main>
     <script src="../main/functions.js"></script>
+    <script src="../html/functions.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function getQueryParams() {
+                let params = {};
+                let queryString = window.location.search.slice(1);
+                let queries = queryString.split('&');
+                queries.forEach(query => {
+                    let [key, value] = query.split('=');
+                    params[key] = decodeURIComponent(value);
+                });
+                return params;
+            }
+
+            let params = getQueryParams();
+            let userId = params.id;
+
+            if (userId) {
+                user_info(userId);
+            } if (userId == undefined ) {
+                window.location.href = "../login/login.html"; // Redireciona se ID não estiver presente
+            }
+        });
+    </script>
+
 </body>
 </html>

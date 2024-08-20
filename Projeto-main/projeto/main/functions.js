@@ -31,32 +31,44 @@ function entrar(){
                 for (i in users) {
                     if (users[i].email == email && users[i].senha == senha) {
                         id = users[i].id 
-                        verifica = true;
-                        window.location.href = "../html/index.html";
+                        verifica = true;                
+                        window.location.href = `../User-page/page_user.html?id=${id}`;
                         break;
                     }
                 }
                 if (verifica == false) {
                     window.alert('Usuário ou senha inválidos!')
                     return;
-                }
-                user_info(id)
+                }  
+                    
             })
         })
+
     }
+    
     else{
         alert('Preencha todos os campos!')
         return;
     }
 }
+
+
 function user_info(id){
+    let dados = document.getElementById("historico")
+    let user  = document.getElementById("userNameDisplay")
+
     fetch(`http://localhost:3000/users/${id}`)
     .then((response) => {return response.json()})
     .then((response) => {
         for (let i=0; i <= response.history.length; i++){
-            console.log(response.history[i]);
+            if (response.history[i] == undefined){
+                response.history[i] = {};
+                break;
+            }
+            dados.innerHTML += `<li style="color: green; list-style: none; font-size: 20px "> ${response.history[i]} </li>`
+
         }
-        console.log(response.nome)
+        user.innerHTML = `Usuário: ${response.email}`
 
     })
 }

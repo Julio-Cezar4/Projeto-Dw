@@ -1,6 +1,5 @@
 body{
-  background-image: url(./space.jpg);
-  background: rgb(9, 8, 24);
+  background: rgb(0, 0, 0);
 
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -15,53 +14,28 @@ section{
   width: 500px;
   margin: auto;
   border-radius: 12px;
+  border: 1px solid white;
   padding: 12px;
   margin-top: 250px;
+
 }
-#mail{
-  border-radius: 4px;
-  width: 350px;
-  margin-top: 10px;
-  margin-left: 10px;
-  box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.633);
-  font-size: 20px;
-  color: rgb(0, 0, 0);
-  background: rgb(255, 255, 255);
-  
-}
-#nome{ 
-  border-radius: 4px;
-  width: 350px;
-  margin-top: 10px;
-  margin-left: 10px;
-  box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.633);
-  font-size: 20px;
-  color: rgb(0, 0, 0);
-  background: rgb(255, 255, 255);
-}
+
 .label-visual{
   margin-left: 10px;
   font-weight: bold;
   font-size: 20px;
   
 }
-#password{
+
+#conf-password, #password, #nome, #mail{
   margin-top: 12px;
   border-radius: 4px;
-  width: 350px;
+  width: 450px;
   margin-top: 10px;
   margin-left: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633);
   font-size: 20px;
-}
-#conf-password{
-  margin-top: 12px;
-  border-radius: 4px;
-  width: 350px;
-  margin-top: 10px;
-  margin-left: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633);
-  font-size: 20px;
+  padding: 4px;
 }
 .pass{
   margin-top: 12px;
@@ -81,13 +55,9 @@ header h2{
   height: 40px;   
   font-size: 14px;
   font-weight: bold;
-}
-
-#but:hover{
-  color:black;
-  background: rgba(214, 214, 237, 0.657);
   cursor: pointer;
 }
+
 #check{
   margin-top: 12px;
   margin-left: 12px;
