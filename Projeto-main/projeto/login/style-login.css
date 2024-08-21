@@ -10,22 +10,6 @@ body {
     color: #e0e0e0; 
     line-height: 1.6;
     background-image: url(./space.jpg);
-<<<<<<< HEAD
-    background: rgb(0, 0, 0);
-    background-size: cover;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 20px;
-
-    
-}
-section{
-    background: rgba(137, 134, 134, 0.27);
- 
-    background-size: cover; /* Faz a imagem cobrir todo o elemento */
-    color: white;
-=======
     background-size: cover; 
     background-position: center;
 }
@@ -33,25 +17,16 @@ section{
 section {
     background-color: rgba(255, 255, 255, 0.1); 
     color: #fff;
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
     width: 500px;
     margin: 250px auto;
     border-radius: 12px;
-<<<<<<< HEAD
-    border: 1px solid rgba(255, 255, 255, 0.274);
     padding: 12px;
-    margin-top: 250px;
-}
-
-.label-visual{
-=======
-    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header h2 {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -60,12 +35,10 @@ header h2 {
 }
 
 .label-visual {
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
 }
-<<<<<<< HEAD
 #password, #mail {
     margin-top: 12px;
     border-radius: 4px;
@@ -74,6 +47,7 @@ header h2 {
     margin-left: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633);
     font-size: 20px;
+    padding: 10px;
 }
 .pass{
     margin-top: 12px;
@@ -85,32 +59,14 @@ header h2{
 .link-cadastro{
     text-decoration: none;
 }
-#but{
-    margin-top: 20px;
-    margin-left: 200px;
-    margin-right: 200px;
-    width: 100px;
-    height: 40px;   
-=======
-
-#mail, #password {
-    border-radius: 4px;
-    width: calc(100% - 40px);
-    margin: 10px 10px 20px 10px;
-    box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.633);
-    font-size: 18px;
-    padding: 10px;
-    background-color: #fff; 
-    color: #333; 
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
-}
 
 #but {
     display: block;
     margin: 20px auto;
-    width: 120px;
-    height: 40px;
+    width: 12rem;
+    height: 3rem;
     border-radius: 4px;
+    font-size: 16px;
     background-color: #007BFF; 
     color: #fff;
     cursor: pointer;
@@ -118,27 +74,14 @@ header h2{
     border: none;
 }
 
-<<<<<<< HEAD
-#but:hover{
-    color:black;
-    background: rgb(214, 214, 237);
-    cursor: pointer;
-=======
 #but:hover {
     background-color: #0056b3; 
     color: black;
-    box-shadow: 2px 2px 5px rgba(247, 247, 247, 0.811);
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
 }
 
 #check {
     margin-left: 10px;
     margin-top: 12px;
-<<<<<<< HEAD
-    margin-left: 12px;
-    cursor: pointer;
-=======
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
 }
 
 #link-cadastro {
@@ -151,28 +94,21 @@ header h2{
 
 
 .container {
-    display: inline-block;
-    width: 50%;
-    height: 200px;
-    width: 700px;
-<<<<<<< HEAD
-    height: 200px;
-  }
-.navbar{
-=======
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: auto;
+    width: auto;
 }
 
 .navbar {
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
     display: flex;
-    align-items: center;
-    justify-content:space-between;
+    align-items: flex-start;
+    justify-content:flex-end;
     float: right;
     width: 700px;
     height: 200px;
 }
-<<<<<<< HEAD
-=======
 
 .logo a {
     text-decoration: none;
@@ -182,17 +118,12 @@ header h2{
     margin-left: 15px;
     text-align: center;
 }
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
 
 .navbar ul li {
     display: inline;
 }
 
-<<<<<<< HEAD
-div ul li:hover{
-=======
 div ul li:hover {
->>>>>>> c9a82403e5909b39c68e57c770bd5ffbb8ccd844
     transition: 1s;
     font-size: 22px;
 }

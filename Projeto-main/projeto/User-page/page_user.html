@@ -37,25 +37,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             function getQueryParams() {
-                let params = {};
-                let queryString = window.location.search.slice(1);
-                let queries = queryString.split('&');
-                queries.forEach(query => {
-                    let [key, value] = query.split('=');
-                    params[key] = decodeURIComponent(value);
-                });
-                return params;
+                const params = new URLSearchParams(window.location.search);
+                const result = {};
+                for (const [key, value] of params.entries()) {
+                    result[key] = decodeURIComponent(value);
+                }
+                console.log(result);
+                return result;
             }
-
-            let params = getQueryParams();
-            let userId = params.id;
-
+        
+            const params = getQueryParams();
+            const userId = params.id;
+        
             if (userId) {
                 user_info(userId);
-            } if (userId == undefined ) {
-                window.location.href = "../login/login.html"; // Redireciona se ID não estiver presente
             }
         });
+        
     </script>
 
 </body>
