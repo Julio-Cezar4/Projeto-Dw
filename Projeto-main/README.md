@@ -18,7 +18,7 @@ Este projeto visa desenvolver um site para a pesquisa de endereços MAC. O siste
 
 ## Links:
 * [Descrição do Projeto](https://ifpb.github.io/dw/project/)
-* [Distribuição de Linguagens](https://github.com/l3l0ch/Projeto-Dw)
+<img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?
 <br>
 
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/seu-repositorio)
