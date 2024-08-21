@@ -106,7 +106,7 @@ function user_info(id){
             dados.innerHTML += `<li style="color: green; list-style: none; font-size: 20px "> ${response.history[i]} </li>`
 
         }
-        user.innerHTML = `Usuário: ${response.email}`
+        user.innerHTML = `<span style="font-size: 20px;">Usuário: ${response.nome}</span>`
 
     })
 }
