@@ -17,9 +17,8 @@ Este projeto visa desenvolver um site para a pesquisa de endereços MAC. O siste
 - **Histórico de Buscas**: Armazena e exibe um histórico das buscas realizadas pelos usuários após o login.
 
 ## Links:
-* [GitHub](https://github.com/seu-repositorio)
 * [Descrição do Projeto](https://ifpb.github.io/dw/project/)
-
+* [Distribuição de Linguagens](https://github.com/l3l0ch/Projeto-Dw)
 <br>
 
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/seu-repositorio)
