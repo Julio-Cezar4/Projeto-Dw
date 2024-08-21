@@ -59,6 +59,13 @@
       "email": "Tsubasa@gmail.com",
       "senha": "123",
       "history": []
+    },
+    {
+      "id": "5916",
+      "nome": "tereza",
+      "email": "tereza@gmail.com",
+      "senha": "123",
+      "history": []
     }
   ]
 }
