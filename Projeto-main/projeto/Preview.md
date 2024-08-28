@@ -1,21 +1,9 @@
----
-name: MACtrace
-description: Descubra a identidade dos fabricantes com o MacTrace.
-Bem-vindo ao MacTrace, sua ferramenta confiável para a pesquisa de endereços MAC e identificação de fabricantes de dispositivos. Com nossa plataforma intuitiva, você pode facilmente buscar qualquer endereço MAC e obter o fabricante responsável pelo equipamento.
-preview: https://raw.githubusercontent.com/l3l0ch/Projeto-Dw/Projeto-main/projeto/preview/image.png
-repository: https://github.com/l3l0ch/Projeto-Dw
-category:
-  type: subject
-  subject: dw
-  semester: 2024.1
-  course: cstrc
-  campus: ifpb-jp
-tags:
-  - html
-  - css
-  - javascript
-owners:
-  - 20222380017
-  - 20222380024
-  - 20211380027
----
+| Campo       | Valor                                                                                           |
+|-------------|-------------------------------------------------------------------------------------------------|
+| **name**    | MACtrace                                                                                       |
+| **description** | Descubra a identidade dos fabricantes com o MacTrace.                                        |
+| **preview** | ![Preview](https://raw.githubusercontent.com/l3l0ch/Projeto-Dw/Projeto-main/projeto/preview/image.png) |
+| **repository** | [GitHub Repository](https://github.com/l3l0ch/Projeto-Dw)                                      |
+| **category** | type: subject <br> subject: dw <br> semester: 2024.1 <br> course: cstrc <br> campus: ifpb-jp |
+| **tags**    | html, css, javascript                                                                           |
+| **owners**  | 20222380017, 20222380024, 20211380027                                                            |
