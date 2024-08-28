@@ -1,4 +1,3 @@
-
 ---
 name: MACtrace 
 description: Descubra a Identidade dos Fabricantes com MacTrace
