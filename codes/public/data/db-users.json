@@ -1,14 +1,24 @@
 {
   "users": [
     {
-      "id": "one",
-      "nome": "root",
-      "email": "admin@sistema.com",
-      "senha": "admin",
-      "foto": "./User-page/5907.jpg",
-      "history": [
-        "Officially Xerox"
-      ]
+      "nome": "ramon",
+      "email": "12@gmail.com",
+      "senha": "123",
+      "history": []
+    },
+    {
+      "id": 28311,
+      "nome": "mateus",
+      "email": "1322@gmail.com",
+      "senha": "123",
+      "history": []
+    },
+    {
+      "id": 85180,
+      "nome": "ola",
+      "email": "ola@gmail.com",
+      "senha": "123",
+      "history": []
     }
   ]
 }

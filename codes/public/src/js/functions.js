@@ -1,4 +1,3 @@
-const cadastros = [{nome: "admin", email: "admin@sistema.com", senha: "admin"}];
 
 /* Função que Verifica se existe o email informado no banco de dados */
 async function verifica_existencia(email) {
@@ -11,6 +10,7 @@ async function verifica_existencia(email) {
 
         const data = await response.json();
         console.log('Dados recebidos:', data);
+//        console.log('Dados recebidos:', data['users'][0].email);
 
         // Acessar a lista de usuários
         const users = data.users;
@@ -119,27 +119,38 @@ async function cadastrar() {
         return;
     }
 
-    try {
-        const emailExiste = await verifica_existencia(email);
-        if (emailExiste) {
-            alert('Email Já Está Cadastrado!');
-            return;
-        }
 
+    const emailExiste = await verifica_existencia(email);
+    if (emailExiste) {
+        alert('Email Já Está Cadastrado!');
+        return;
+    }
+
+    const new_user = {
+        "id": Math.floor(Math.random() * 100000),
+        "nome": nome,
+        "email": email,
+        "senha": senha,
+        "history": []
+    }
+    try {
         const response = await fetch('/users', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, email, senha, history: [] })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(new_user)
         });
-        console.log(response)
+
         if (!response.ok) {
-            throw new Error('Erro ao enviar os dados para o servidor');
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
-        console.log('Novo usuário cadastrado com sucesso:', data);
-        window.location.href = '../login/login.html';
+        alert('Usuário cadastrado com sucesso!');
     } catch (error) {
-        console.error('Erro:', error);
+        console.error('Erro ao cadastrar usuário:', error);
     }
 }
+
+
+
