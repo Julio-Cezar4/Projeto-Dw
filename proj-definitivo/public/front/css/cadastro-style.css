@@ -1,0 +1,140 @@
+body, h1, h2, ul, li, input, section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #1e1e1e; 
+  color: #e0e0e0; 
+  line-height: 1.6;
+  background-image: url(./space.jpg);
+  background-size: cover; 
+  background-position: center;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: #fff;
+  width: 500px;
+  margin: 250px auto;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+header h2 {
+  text-align: center;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.label-visual {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#conf-password, #password, #nome, #mail{
+  margin-top: 12px;
+  border-radius: 4px;
+  width: 450px;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633);
+  font-size: 20px;
+  padding: 4px;
+}
+.pass{
+  margin-top: 12px;
+  color: white;
+}
+header h2{
+  text-align: center;
+}
+.link-cadastro{
+  text-decoration: none;
+}
+#but {
+  display: block;
+  margin: 20px auto;
+  font-size: 16px;
+  width: 12rem;
+  height: 3rem;
+  border-radius: 4px;
+  background-color: #007BFF; 
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+}
+
+#check{
+  margin-top: 12px;
+}
+
+#link-cadastro {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+}
+
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: auto;
+  width: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content:flex-end;
+  float: right;
+  width: 700px;
+  height: 200px;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  margin-left: 15px;
+  text-align: center;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+div ul li:hover {
+  transition: 1s;
+  font-size: 22px;
+}
+
+.navbar ul li a {
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: 1s;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar ul li a:hover {
+  color: #ff9800; 
+}
+
+section div {
+  margin-top: 12px;
+}
