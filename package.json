@@ -7,13 +7,10 @@
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "prisma": "^5.19.1"
-<<<<<<< HEAD
   },
-    "scripts": {
-      "start": "node src/express.mjs",
-      "dev": "node --watch ./src/express.mjs"
-    }
-=======
+  "scripts": {
+    "start": "node src/express.mjs",
+    "dev": "node --watch ./src/express.mjs"
   }
->>>>>>> 817b4463573ed972472d978fce029226ac3a3368
 }
+
