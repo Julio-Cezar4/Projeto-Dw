@@ -1,7 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 import fs from 'fs/promises';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 817b4463573ed972472d978fce029226ac3a3368
 const prisma = new PrismaClient();
 
 async function main() {
