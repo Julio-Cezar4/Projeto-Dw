@@ -22,32 +22,73 @@ let historico = document.getElementById("resultados");
 
 async function find() {
     try {
-        // Regex que remove hífens
+        // Regex que remove hífens e busca pelos primeiros 6 caracteres
         let novo = pesquisado.value.replace(/-/g, '');
-        // Pegando apenas os 6 primeiros caracteres
         let pesquisar = novo.substring(0, 6);
 
-        // Fetch dos dados
+        // Fetch dos dados dos Macs
         let response = await fetch('http://127.0.0.1:40000/data/macs');
         let data = await response.json();
+        let resultado = '';
 
-        console.log(pesquisar);
         // Busca pelo MAC
         for (let macs of data) {
             if (pesquisado.value === '') {
                 break;
             }
             if (macs.nome.toLowerCase() === pesquisar) {
-                conteudo.innerHTML = `<p class="mac_results">${macs.fabricante}</p>`;
+                resultado = macs.fabricante;
+                conteudo.innerHTML = `<p class="mac_results">${resultado}</p>`;
                 break;
             }
+        }
+
+        if (resultado) {
+            const userId = window.localStorage.getItem('userId'); // ou outra forma de pegar o ID do usuário logado
+
+            // Envia o histórico para o backend
+            const responseHistory = await fetch(`/data/users/${userId}/history`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ pesquisa: resultado })
+            });
+
+            const historyData = await responseHistory.json();
+
+            // Atualize o histórico no frontend
+            addHistoryToDOM(resultado);
         }
     } catch (error) {
         console.error('Erro:', error);
     } finally {
-        // Limpar o valor do input
-        pesquisado.value = '';
+        pesquisado.value = ''; // Limpa o campo de pesquisa
     }
+}
+
+function carregarHistoricoDoUsuario(userId) {
+    fetch(`http://localhost:40000/data/users/${userId}/history`).then((response) => {
+        return response.json()
+    })
+    .then((response) => {
+        console.log(response.history)
+        for(const item of response.history){
+            addHistoryToDOM(item.entry)
+        }
+    })
+    console.log('ID do usuário: ',userId)
+}
+
+// Função para adicionar o histórico ao DOM
+function addHistoryToDOM(entry) {
+    const historicoContainer = document.getElementById('historico'); // Certifique-se de que o ID 'historico' existe no HTML
+    const newHistoryItem = document.createElement('li');
+    newHistoryItem.textContent = entry;
+    newHistoryItem.style.color = 'green'; // Personalize o estilo se necessário
+    newHistoryItem.style.listStyle = 'none';
+    newHistoryItem.style.fontSize = '20px';
+    historicoContainer.appendChild(newHistoryItem); // Adiciona o novo item ao final da lista
 }
 
 async function entrar() {
@@ -67,6 +108,7 @@ async function entrar() {
             console.log('Usuários: \n', users);
             const user = users.find(user => user.email === email && user.senha === senha);
             if (user) {
+                window.localStorage.setItem('userId', user.id);
                 window.location.href = `../html/page_user.html?id=${user.id}`; // User-page/page_user.html
             } else {
                 alert('Usuário ou senha inválidos!');
@@ -91,16 +133,15 @@ function user_info(id) {
             return response.json();
         })
         .then((response) => {
-            console.log('Dados do usuário:', response);
             dados.innerHTML = ''; 
             
-            if (Array.isArray(response.history)) {
-                response.history.forEach(item => {
-                    dados.innerHTML += `<li style="color: green; list-style: none; font-size: 20px">${item}</li>`;
-                });
-            } else {
-                console.error('response.history não é um array');
-            }
+            // if (Array.isArray(response.history)) {
+            //     response.history.forEach(item => {
+            //         dados.innerHTML += `<li style="color: green; list-style: none; font-size: 20px">${item}</li>`;
+            //     });
+            // } else {
+            //     console.error('response.history não é um array');
+            // }
             
             user.innerHTML = `<span style="font-size: 20px;">Usuário: ${response.nome}</span>`;
         })
@@ -155,3 +196,5 @@ async function cadastrar() {
         console.error('Erro ao cadastrar usuário:', error);
     }
 }
+
+

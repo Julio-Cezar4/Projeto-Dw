@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <title>Página Principal</title>
-
 </head>
 <body>
     <main>
@@ -31,32 +30,22 @@
         </div>
     </main>
     <script src="/js/functions.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            function getQueryParams() {
-                const params = new URLSearchParams(window.location.search);
-                const result = {};
-                for (const [key, value] of params.entries()) {
-                    result[key] = decodeURIComponent(value);
-                }
-                console.log(result);
-                return result;
-            }
-        
-            const params = getQueryParams();
-            const userId = params.id;
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('id');
         
             if (userId) {
                 user_info(userId);
+                carregarHistoricoDoUsuario(userId); // Chamando a função para carregar histórico
             }
         });
 
-        // Função para lidar com o logout
         function logout() {
+            window.localStorage.removeItem('userId'); // Remove o ID do usuário
+            console.log(window.localStorage.removeItem('userId'))
             window.location.href = 'http://localhost:40000/login'; // Redireciona para a página de login
         }
     </script>
-
 </body>
 </html>

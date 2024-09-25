@@ -59,6 +59,50 @@ app.get('/data/users/:id', async (req, res) => {
     }
 });
 
+app.post('/data/users/:id/history', async (req, res) => {
+    const userId = parseInt(req.params.id);
+    const { pesquisa } = req.body;
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: { id: userId }
+        });
+
+        if (!user) {
+            return res.status(404).json({ error: "Usuário não encontrado" });
+        }
+
+        const newHistory = await prisma.history.create({
+            data: {
+                entry: pesquisa, 
+                userId: userId
+            }
+        });
+
+        res.status(200).json(newHistory);
+    } catch (error) {
+        console.error('Erro ao adicionar ao histórico:', error);
+        res.status(500).json({ error: "Erro ao adicionar ao histórico" });
+    }
+});
+
+app.get('/data/users/:id/history', async (req, res) => {
+    const userId = parseInt(req.params.id);
+
+    try {
+        const history = await prisma.history.findMany({
+            where: { userId: userId },
+            orderBy: { createdAt: 'desc' } // Ordenar do mais recente ao mais antigo
+        });
+
+        res.status(200).json({ history });
+    } catch (error) {
+        console.error('Erro ao obter o histórico do usuário:', error);
+        res.status(500).json({ error: "Erro ao obter o histórico do usuário" });
+    }
+});
+
+
 app.get(url, (req, res) => {
     const { action } = req.params;
 
