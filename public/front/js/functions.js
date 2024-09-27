@@ -1,4 +1,3 @@
-/* Função que Verifica se existe o email informado no banco de dados */
 async function verifica_existencia(email) {
     try {
         const response = await fetch('/data/users');
@@ -22,16 +21,14 @@ let historico = document.getElementById("resultados");
 
 async function find() {
     try {
-        // Regex que remove hífens e busca pelos primeiros 6 caracteres
-        let novo = pesquisado.value.replace(/-/g, '');
+        let novo = pesquisado.value.replace(/[:-]/g, '');
+        console.log(novo)
         let pesquisar = novo.substring(0, 6);
 
-        // Fetch dos dados dos Macs
         let response = await fetch('http://127.0.0.1:40000/data/macs');
         let data = await response.json();
         let resultado = '';
 
-        // Busca pelo MAC
         for (let macs of data) {
             if (pesquisado.value === '') {
                 break;
@@ -41,12 +38,14 @@ async function find() {
                 conteudo.innerHTML = `<p class="mac_results">${resultado}</p>`;
                 break;
             }
+            else{
+                conteudo.innerHTML = `<p class="mac_results">Not Found</p>`;
+            }
         }
 
         if (resultado) {
-            const userId = window.localStorage.getItem('userId'); // ou outra forma de pegar o ID do usuário logado
-
-            // Envia o histórico para o backend
+            const userId = window.localStorage.getItem('userId'); 
+           
             const responseHistory = await fetch(`/data/users/${userId}/history`, {
                 method: 'POST',
                 headers: {
@@ -57,39 +56,53 @@ async function find() {
 
             const historyData = await responseHistory.json();
 
-            // Atualize o histórico no frontend
             addHistoryToDOM(resultado);
         }
     } catch (error) {
         console.error('Erro:', error);
     } finally {
-        pesquisado.value = ''; // Limpa o campo de pesquisa
+        pesquisado.value = ''; 
     }
 }
+
 
 function carregarHistoricoDoUsuario(userId) {
     fetch(`http://localhost:40000/data/users/${userId}/history`).then((response) => {
         return response.json()
     })
     .then((response) => {
-        console.log(response.history)
+        console.log(response)
         for(const item of response.history){
-            addHistoryToDOM(item.entry)
+            addHistoryToDOM(item.entry, item.createdAt)
+            console.log(item.createdAt)
         }
     })
-    console.log('ID do usuário: ',userId)
 }
 
-// Função para adicionar o histórico ao DOM
-function addHistoryToDOM(entry) {
-    const historicoContainer = document.getElementById('historico'); // Certifique-se de que o ID 'historico' existe no HTML
-    const newHistoryItem = document.createElement('li');
-    newHistoryItem.textContent = entry;
-    newHistoryItem.style.color = 'green'; // Personalize o estilo se necessário
-    newHistoryItem.style.listStyle = 'none';
-    newHistoryItem.style.fontSize = '20px';
-    historicoContainer.appendChild(newHistoryItem); // Adiciona o novo item ao final da lista
+function addHistoryToDOM(entry, date) {
+    const historicoBody = document.getElementById('historico-body');
+    
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${entry}</td>
+        <td>${formatarData(date)}</td>
+    `;
+    historicoBody.appendChild(newRow); 
 }
+
+function formatarData(dataISO) {
+    const data = new Date(dataISO);
+    
+    const dia = String(data.getDate()).padStart(2, '0'); 
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = data.getFullYear();
+    
+    const horas = String(data.getHours()).padStart(2, '0');
+    const minutos = String(data.getMinutes()).padStart(2, '0');
+    
+    return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
+}
+
 
 async function entrar() {
     const email = document.querySelector('input#mail').value;
@@ -105,7 +118,6 @@ async function entrar() {
 
             const data = await response.json();
             const users = data; // Acessar a lista de usuários
-            console.log('Usuários: \n', users);
             const user = users.find(user => user.email === email && user.senha === senha);
             if (user) {
                 window.localStorage.setItem('userId', user.id);
@@ -122,8 +134,7 @@ async function entrar() {
 }
 
 function user_info(id) {
-    let dados = document.getElementById("historico");
-    let user = document.getElementById("userNameDisplay");
+    let user = document.getElementById("userName");
 
     fetch(`/data/users/${id}`)
         .then((response) => {
@@ -133,20 +144,11 @@ function user_info(id) {
             return response.json();
         })
         .then((response) => {
-            dados.innerHTML = ''; 
-            
-            // if (Array.isArray(response.history)) {
-            //     response.history.forEach(item => {
-            //         dados.innerHTML += `<li style="color: green; list-style: none; font-size: 20px">${item}</li>`;
-            //     });
-            // } else {
-            //     console.error('response.history não é um array');
-            // }
-            
-            user.innerHTML = `<span style="font-size: 20px;">Usuário: ${response.nome}</span>`;
+            user.innerHTML = `<span style="font-size: 20px;">User: ${response.nome}</span>`;
         })
         .catch(error => console.error('Erro:', error));
 }
+
 
 async function cadastrar() {
     const nome = document.querySelector('input#nome').value;
@@ -170,7 +172,6 @@ async function cadastrar() {
     }
 
     const new_user = {
-        "id": Math.floor(Math.random() * 100000),
         "nome": nome,
         "email": email,
         "senha": senha,

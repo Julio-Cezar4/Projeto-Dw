@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename);
 const PUBLIC = path.join(__dirname, '../public/front/');
 const USERS_FILE_PATH = path.join(__dirname, '../src/database/seeders.json'); 
 
-app.use(cors()); // Isso permite todas as origens
+app.use(cors());
 app.use(express.static(path.join(__dirname, '../public/front/')));
 app.use(morgan('tiny'));
 app.use(express.json());
@@ -41,7 +41,7 @@ app.get('/data/macs', async (req, res) => {
 });
 
 app.get('/data/users/:id', async (req, res) => {
-    const userId = parseInt(req.params.id);
+    const userId = req.params.id;
     
     try {
         const user = await prisma.user.findUnique({
@@ -60,7 +60,7 @@ app.get('/data/users/:id', async (req, res) => {
 });
 
 app.post('/data/users/:id/history', async (req, res) => {
-    const userId = parseInt(req.params.id);
+    const userId = req.params.id;
     const { pesquisa } = req.body;
 
     try {
@@ -87,12 +87,11 @@ app.post('/data/users/:id/history', async (req, res) => {
 });
 
 app.get('/data/users/:id/history', async (req, res) => {
-    const userId = parseInt(req.params.id);
-
+    const userId = req.params.id;
     try {
         const history = await prisma.history.findMany({
             where: { userId: userId },
-            orderBy: { createdAt: 'desc' } // Ordenar do mais recente ao mais antigo
+            orderBy: { createdAt: 'desc' } 
         });
 
         res.status(200).json({ history });
@@ -131,8 +130,6 @@ app.get(url, (req, res) => {
 app.post('/data/users', async (req, res) => {
     const { nome, email, senha } = req.body;
 
-    console.log('Novo usuário:', req.body);
-
     try {
         const newUser = await prisma.user.create({
             data: { nome, email, senha },
@@ -144,6 +141,7 @@ app.post('/data/users', async (req, res) => {
         res.status(500).send('Erro interno do servidor');
     }
 });
+
 
 app.listen(port, () => {
     console.log('Servidor rodando na porta:', port);

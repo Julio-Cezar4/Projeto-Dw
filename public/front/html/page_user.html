@@ -14,7 +14,7 @@
         <nav id="lista">
             <header><h2>MA-CV-EN-DO-RS</h2></header>
             <ul>
-                <li id="userNameDisplay"></li>
+                <li id="userName"></li>
             </ul>
             <input id="logout" value="Logout" type="button" onclick="logout()">
         </nav>
@@ -26,7 +26,17 @@
         <div id="resultados">
             <div id="resultado"></div>
             <h2 id="historico-titulo">Histórico de Pesquisas:</h2>
-            <ul id="historico"></ul>
+            <table id="historico-table" border="1" style="width:100%; text-align:left;">
+                <thead>
+                    <tr>
+                        <th>Fabricante</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="historico-body">
+                </tbody>
+            </table>
+            
         </div>
     </main>
     <script src="/js/functions.js"></script>

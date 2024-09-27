@@ -1,41 +1,47 @@
-
+/* Reset básico */
 body, h1, h2, ul, li, input {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilo global do body */
 body {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #1e1e1e; 
-    color: #e0e0e0;
+    background-color: #2C3E50; /* Tom de azul escuro */
+    color: #ECF0F1; /* Texto branco gelo */
     line-height: 1.6;
 }
-.box-img{
+
+/* Caixa circular para imagens ou ícones */
+.box-img {
     color: white;
-    background-color: rgb(255, 255, 255);
+    background-color: #34495E; /* Azul escuro mais suave */
     border-radius: 50%;
     height: 2.0rem;
     width: 2.0rem;
-    
 }
 
-.mac_results{
+/* Estilo dos resultados de MAC */
+.mac_results {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 26px;
+    color: #27AE60; /* Verde vibrante */
 }
 
+/* Estilo do container principal */
 main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: #ECF0F1; /* Fundo claro */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
+/* Estilo da navegação lateral */
 nav#lista {
-    background-color: #333; 
+    background-color: #34495E; /* Azul escuro */
     color: #fff;
     padding: 15px;
     border-radius: 8px;
@@ -52,10 +58,10 @@ nav#lista header h2 {
     margin: 0;
     font-size: 2em;
     font-weight: bold;
-    color: #fff; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+    color: #ECF0F1; /* Branco gelo */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 nav#lista ul {
@@ -70,68 +76,131 @@ nav#lista li {
 }
 
 nav#lista a {
-    color: #fff;
+    color: #ECF0F1; /* Branco gelo */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav#lista a:hover {
-    color: #ff9800; 
+    color: #F39C12; /* Laranja vibrante */
 }
 
+/* Estilo dos títulos */
 h1 {
     font-size: 2.5em;
     margin: 20px 0;
     text-align: center;
-    color: #333; 
+    color: #2C3E50; /* Azul escuro */
 }
 
+h2 {
+    color: #27AE60; /* Verde vibrante */
+}
+
+/* Estilo do campo de pesquisa */
 #main {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-h2{
-    color: rgb(2, 95, 87);
 
-}
 #pesquisado {
     padding: 10px;
     font-size: 1em;
-    border: 1px solid #ccc;
+    border: 1px solid #BDC3C7; /* Cinza claro */
     border-radius: 4px;
     margin-right: 10px;
     width: 250px;
-    background-color: #fff; 
-    color: #333; 
+    background-color: #fff;
+    color: #2C3E50; /* Texto azul escuro */
 }
 
+/* Estilo do botão de pesquisa */
 #add {
     padding: 10px 20px;
     font-size: 1em;
     border: none;
     border-radius: 4px;
-    background-color: #007BFF; 
+    background-color: #27AE60; /* Verde vibrante */
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #add:hover {
-    background-color: #0056b3; 
+    background-color: #1E8449; /* Verde mais escuro */
 }
 
+/* Estilo do container de resultados */
 #resultados {
     margin-top: 20px;
 }
 
 #resultado {
     padding: 20px;
-    background-color: #fff; 
-    color: #333; 
-    border: 1px solid #ddd;
+    background-color: #ECF0F1; /* Fundo claro */
+    color: #2C3E50; /* Texto azul escuro */
+    border: 1px solid #BDC3C7; /* Cinza claro */
     border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Estilo do cabeçalho da tabela */
+table thead tr {
+    background-color: #27AE60; /* Verde vibrante */
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Bordas para a tabela e células */
+table, th, td {
+    border: 1px solid #BDC3C7; /* Cinza claro */
+}
+
+/* Estilo do corpo da tabela */
+table tbody tr {
+    border-bottom: 1px solid #BDC3C7;
+}
+
+/* Cor de fundo alternada para as linhas da tabela */
+table tbody tr:nth-of-type(even) {
+    background-color: #ECF0F1; /* Fundo claro */
+}
+
+/* Cor de fundo ao passar o mouse sobre as linhas */
+table tbody tr:hover {
+    background-color: #F4F6F7; /* Cinza muito claro */
+}
+
+/* Estiliza as células */
+table td, table th {
+    padding: 12px 15px;
+}
+
+/* Estilo opcional para os dados das células */
+table td {
+    color: #2C3E50; /* Texto azul escuro */
+}
+
+/* Estiliza o texto da coluna 'Modelo' */
+table td:nth-child(3) {
+    font-style: italic;
+}
+
+/* Ajustes de sinergia para cores */
+h1, h2 {
+    color: #27AE60; /* Verde vibrante */
 }

@@ -1,28 +1,32 @@
+/* Reset básico */
 body, h1, h2, ul, li, input, section {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilo global do body */
 body {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #1e1e1e; 
-    color: #e0e0e0; 
+    background-color: #1e1e1e; /* Tom escuro para o fundo */
+    color: #e0e0e0; /* Texto em cinza claro para contraste */
     line-height: 1.6;
     background-size: cover; 
     background-position: center;
 }
 
+/* Seção centralizada com leve transparência */
 section {
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
     color: #fff;
     width: 500px;
     margin: 250px auto;
     border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
+/* Cabeçalhos */
 header h2 {
     text-align: center;
     font-size: 1.7em;
@@ -31,34 +35,38 @@ header h2 {
     text-transform: uppercase;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    color: #009879; /* Mesma cor usada na tabela */
 }
 
+/* Labels visuais */
 .label-visual {
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
+    color: #009879; /* Cor verde usada para coesão */
 }
+
+/* Campos de input */
 #password, #mail {
     margin-top: 12px;
     border-radius: 4px;
     width: 450px;
-    margin-top: 10px;
     margin-left: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.633); /* Sombra leve */
     font-size: 20px;
     padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #333; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro para contraste */
 }
-.pass{
+
+/* Texto da senha */
+.pass {
     margin-top: 12px;
     color: white;
 }
-header h2{
-    text-align: center;
-}
-.link-cadastro{
-    text-decoration: none;
-}
 
+/* Botão de envio */
 #but {
     display: block;
     margin: 20px auto;
@@ -66,7 +74,7 @@ header h2{
     height: 3rem;
     border-radius: 4px;
     font-size: 16px;
-    background-color: #007BFF; 
+    background-color: #007BFF; /* Azul padrão */
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -74,24 +82,31 @@ header h2{
 }
 
 #but:hover {
-    background-color: #0056b3; 
-    color: black;
+    background-color: #0056b3; /* Azul mais escuro no hover */
+    color: black; /* Texto preto no hover */
 }
 
+/* Checkbox */
 #check {
     margin-left: 10px;
     margin-top: 12px;
 }
 
+/* Link de cadastro */
 #link-cadastro {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: #009879; /* Verde em sinergia com a tabela */
     margin-top: 20px;
+    font-size: 1.1em;
 }
 
+#link-cadastro:hover {
+    color: #ff9800; /* Laranja vibrante no hover */
+}
 
+/* Estilo da navbar */
 .container {
     display: flex;
     justify-content: flex-end;
@@ -103,12 +118,13 @@ header h2{
 .navbar {
     display: flex;
     align-items: flex-start;
-    justify-content:flex-end;
+    justify-content: flex-end;
     float: right;
     width: 700px;
     height: 200px;
 }
 
+/* Logo */
 .logo a {
     text-decoration: none;
     font-size: 32px;
@@ -118,8 +134,10 @@ header h2{
     text-align: center;
 }
 
+/* Itens da navbar */
 .navbar ul li {
     display: inline;
+    margin-left: 20px;
 }
 
 div ul li:hover {
@@ -127,15 +145,17 @@ div ul li:hover {
     font-size: 22px;
 }
 
+/* Links da navbar */
 .navbar ul li a {
     padding: 10px 20px;
     border-radius: 30px;
-    transition: 1s;
+    transition: 0.5s; /* Ajustado para uma transição mais rápida */
     text-decoration: none;
     color: white;
     cursor: pointer;
 }
 
 .navbar ul li a:hover {
-    color: #ff9800; 
+    color: #ff9800; /* Laranja no hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente no hover */
 }

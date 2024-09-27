@@ -8,7 +8,6 @@ async function main() {
   const users = JSON.parse(data).users;
   const macs = JSON.parse(data).macs;
 
-  // Criação de usuários e seus históricos (se houver)
   for (const user of users) {
     try {
       await prisma.user.create({
@@ -19,7 +18,7 @@ async function main() {
           histories: {
             create: user.history && user.history.length > 0 ? 
               user.history.map(hist => ({
-                entry: hist.entry, // Adapte conforme a estrutura do seu JSON
+                entry: hist.entry, 
               })) : [],
           },
         },
@@ -30,7 +29,6 @@ async function main() {
     }
   }
 
-  // Criação de MACs
   for (const mac of macs) {
     try {
       await prisma.mac.create({

@@ -6,11 +6,10 @@
     "fs": "^0.0.1-security",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
-    "prisma": "^5.19.1"
+    "prisma": "^5.20.0"
   },
   "scripts": {
     "start": "node src/express.mjs",
     "dev": "node --watch ./src/express.mjs"
   }
 }
-
